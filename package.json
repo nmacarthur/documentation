@@ -12,10 +12,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^13.0.0",
+    "@contentful/rich-text-types": "^13.0.0",
     "antd": "^3.12.4",
     "contentful": "^7.1.0",
     "fs": "0.0.1-security",
     "isomorphic-fetch": "^2.2.1",
+    "nanoid": "^2.0.1",
     "net": "^1.0.2",
     "next": "^7.0.2",
     "react": "^16.7.0",
