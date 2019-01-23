@@ -1,7 +1,6 @@
 import { withRouter } from 'next/router';
 import fetch from 'isomorphic-fetch';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import Router from 'next/router';
 
 import Layout from '../components/MyLayout';
 
