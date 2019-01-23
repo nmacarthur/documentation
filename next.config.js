@@ -7,7 +7,7 @@ const guides = async () => {
   const json = await res.json();
 
   const slugs = json.items.map(item => {
-    const url = `/guide/${item.fields.slug}`;
+    const url = `/${item.fields.slug}`;
     const slug = `${item.fields.slug}`;
     const info = {
       url,

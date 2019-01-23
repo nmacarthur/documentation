@@ -20,7 +20,7 @@ app
   .then(() => {
     const server = express();
 
-    server.get('/guide/:slug', (req, res) => {
+    server.get('/:slug', (req, res) => {
       validSlug(req.params.slug).then(response => {
         if (response) {
           const actualPage = '/post';

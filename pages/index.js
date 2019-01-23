@@ -6,7 +6,7 @@ const nanoid = require('nanoid');
 
 const PostLink = ({ id, slug, title }) => (
   <li>
-    <Link as={`/guide/${slug}`} href={`/post?id=${id}&title=${title}&slug=${slug}`}>
+    <Link as={`/${slug}`} href={`/post?id=${id}&title=${title}&slug=${slug}`}>
       <a>{title}</a>
     </Link>
   </li>
