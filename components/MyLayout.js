@@ -1,16 +1,48 @@
-import Header from './Header'
+import Header from './Header';
+import Sidebar from './Sidebar';
 
 const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD'
-}
+  margin: 0,
+  padding: 0,
+  display: 'flex',
+  height: '100%',
+  width: '100%'
+};
 
-const Layout = (props) => (
-  <div style={layoutStyle}>
+const Layout = ({ sidebar, children }) => (
+  <div>
     <Header />
-    {props.children}
+    <div className="layout">
+      <Sidebar data={sidebar} />
+      <div>{children}</div>
+      <style jsx global>
+        {`
+          html {
+            height: 100%;
+          }
+          body {
+            margin: 0;
+            min-height: 100%;
+            width: 100%;
+          }
+          #__next {
+            height: 100%;
+          }
+        `}
+      </style>
+      <style jsx>
+        {`
+          .layout {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100%;
+            width: 100%;
+          }
+        `}
+      </style>
+    </div>
   </div>
-)
+);
 
-export default Layout
+export default Layout;
