@@ -14,14 +14,11 @@ const PostLink = ({ id, slug, title }) => (
   </li>
 );
 
-const Index = ({ data }) => {
-  console.log(data);
-  return (
-    <Layout sidebar={data}>
-      <h1>YO yo yo</h1>
-    </Layout>
-  );
-};
+const Index = ({ data }) => (
+  <Layout sidebar={data}>
+    <h1>Index Content</h1>
+  </Layout>
+);
 
 Index.getInitialProps = async () => {
   const data = await getAllPosts();

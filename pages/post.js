@@ -1,5 +1,3 @@
-import { withRouter } from 'next/router';
-import fetch from 'isomorphic-fetch';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 import { getSinglePost, getAllPosts } from '../dataFetching';
@@ -10,7 +8,7 @@ const HtmlToReactParser = require('html-to-react').Parser;
 
 const htmlToReactParser = new HtmlToReactParser();
 
-const Content = withRouter(({ router, content, title }) => {
+const Content = ({ content, title }) => {
   const preparedContent = htmlToReactParser.parse(documentToHtmlString(content));
   return (
     <div>
@@ -18,16 +16,19 @@ const Content = withRouter(({ router, content, title }) => {
       {preparedContent}
     </div>
   );
-});
-
-const Page = ({ data }) => {
-  console.log(data);
-  return <Layout sidebar={data} />;
 };
+
+const Page = ({ sidebar, data }) => (
+  <Layout sidebar={sidebar}>
+    <Content title={data.title} content={data.content} />
+  </Layout>
+);
+
 Page.getInitialProps = async props => {
   const sidebar = await getAllPosts();
+  const data = await getSinglePost(props);
 
-  return { data: sidebar };
+  return { sidebar: sidebar.data, data: data.data };
 };
 
 export default Page;
