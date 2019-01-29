@@ -2,7 +2,7 @@ import Link from 'next/link';
 import fetch from 'isomorphic-fetch';
 import Layout from '../components/MyLayout';
 
-import { getAllPosts } from '../dataFetching';
+import { getAllPosts } from '../util/dataFetching';
 
 const nanoid = require('nanoid');
 
