@@ -7,8 +7,11 @@ const getSinglePost = async props => {
     }&include=1`
   );
   const json = await res.json();
-  const assets = json.includes.Asset;
-  return { data: json.items[0].fields, assets };
+  if (json.includes) {
+    const assets = json.includes.Asset;
+    return { data: json.items[0].fields, assets };
+  }
+  return { data: json.items[0].fields };
 };
 
 const getAllPosts = async () => {

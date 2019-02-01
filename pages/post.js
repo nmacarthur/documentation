@@ -11,27 +11,62 @@ const htmlToReactParser = new HtmlToReactParser();
 
 const options = {
   renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: node => `<img src='' alt='oi' />`
+    [BLOCKS.EMBEDDED_ASSET]: node => `<img src="${node.data.target.sys.id}" id="" alt='oi' />`
   }
 };
 
-const Content = ({ content, title, slug }) => {
-  const data = documentToHtmlString(content, options);
-  const parsed = htmlToReactParser.parse(data);
-
-  return <p>{parsed}</p>;
+const swapUrlForID = async (string, slug) => {
+  const newString = string;
+  const assetArray = getAssets(slug)
+    .then(assets =>
+      assets.map(a => {
+        const obj = {};
+        obj.id = a.sys.id;
+        obj.url = a.fields.file.url;
+        return obj;
+      })
+    )
+    .then(a =>
+      a.map(object => {
+        const string = newString.replace(object.id, object.url);
+        return string;
+      })
+    );
+  return assetArray;
 };
 
-const Page = async ({ sidebar, data, slug }) => (
+const Content = ({ content, title, slug }) => {
+  const parsed = htmlToReactParser.parse(content);
+  return (
+    <div>
+      <h1>{title}</h1>
+      <p>{parsed}</p>
+    </div>
+  );
+};
+
+const Page = ({ sidebar, data, title, slug }) => (
   <Layout sidebar={sidebar}>
-    <Content title={data.title} content={data.content} slug={slug} />
+    <Content title={title} content={data} slug={slug} />
   </Layout>
 );
 
 Page.getInitialProps = async props => {
   const sidebar = await getAllPosts();
   const data = await getSinglePost(props);
-  return { sidebar: sidebar.data, data: data.data, slug: props.query.slug };
+
+  const htmlString = documentToHtmlString(data.data.content, options);
+
+  if (data.assets) {
+    const newdata = await swapUrlForID(htmlString, props.query.slug);
+    return { sidebar: sidebar.data, data: newdata, title: data.title, slug: props.query.slug };
+  }
+  return {
+    sidebar: sidebar.data,
+    data: htmlString,
+    title: data.title,
+    slug: props.query.slug
+  };
 };
 
 export default Page;
