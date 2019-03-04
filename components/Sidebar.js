@@ -1,43 +1,53 @@
 import Link from 'next/link';
+import styled from 'styled-components';
+import { themeGet } from 'styled-system';
 
 const nanoid = require('nanoid');
 
+const SidebarStyles = styled.aside`
+  flex-shrink: 0;
+  min-height: calc(100vh - 80px);
+  padding-right: 48px;
+  box-sizing: content-box;
+`;
+
+const SubMenu = styled.ul`
+  list-style: none;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  font-size: 20px;
+`;
+const SubMenuItem = styled.li`
+  margin-bottom: 10px;
+  a {
+    padding-left: 0;
+
+    font-size: ${themeGet('fontSizes.s')}px;
+  }
+`;
+
 const PostLink = ({ id, slug, title }) => (
-  <li style={linkStyle}>
+  <SubMenuItem>
     <Link as={`/${slug}`} href={`/post?id=${id}&title=${title}&slug=${slug}`}>
-      <a style={aStyle}>{title}</a>
+      <a>{title}</a>
     </Link>
-  </li>
+  </SubMenuItem>
 );
 
-const linkStyle = {
-  fontSize: '1.25rem',
-  listStyleType: 'none',
-  lineHeight: '2.5rem'
-};
-
-const aStyle = {
-  textDecoration: 'none'
-};
-
-const sidebarStyle = {
-  width: '20%',
-  height: '100%',
-  backgroundColor: '#efefef',
-  padding: '2rem'
-};
-
 const Sidebar = ({ data }) => (
-  <div style={sidebarStyle}>
-    {data.map(article => (
-      <PostLink
-        key={nanoid()}
-        id={article.sys.id}
-        slug={article.fields.slug}
-        title={article.fields.title}
-      />
-    ))}
-  </div>
+  <SidebarStyles>
+    <SubMenu>
+      {data.map(article => (
+        <PostLink
+          key={nanoid()}
+          id={article.sys.id}
+          slug={article.fields.slug}
+          title={article.fields.title}
+        />
+      ))}
+    </SubMenu>
+  </SidebarStyles>
 );
 
 export default Sidebar;

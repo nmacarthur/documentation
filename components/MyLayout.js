@@ -1,48 +1,34 @@
-import Header from './Header';
+import styled from 'styled-components';
+import { themeGet } from 'styled-system';
+import Header from './organisms/Header';
 import Sidebar from './Sidebar';
 
-const layoutStyle = {
-  margin: 0,
-  padding: 0,
-  display: 'flex',
-  height: '100%',
-  width: '100%'
-};
+const LayoutInner = styled.div`
+  display: flex;
+  padding: 40px 0 40px 40px;
+`;
+
+const Content = styled.main`
+  flex: 1;
+  margin: 30px 0 0;
+  padding: 0 80px;
+  max-width: 100%;
+  overflow: hidden;
+`;
+const BaseStyles = styled.div`
+  font-family: ${themeGet('fonts.bodyText')};
+  color: ${themeGet('colors.black')};
+  line-height: ${themeGet('lineHeights.l')};
+`;
 
 const Layout = ({ sidebar, children }) => (
-  <div>
+  <BaseStyles>
     <Header />
-    <div className="layout">
+    <LayoutInner>
       <Sidebar data={sidebar} />
-      <div>{children}</div>
-      <style jsx global>
-        {`
-          html {
-            height: 100%;
-          }
-          body {
-            margin: 0;
-            min-height: 100%;
-            width: 100%;
-          }
-          #__next {
-            height: 100%;
-          }
-        `}
-      </style>
-      <style jsx>
-        {`
-          .layout {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100%;
-            width: 100%;
-          }
-        `}
-      </style>
-    </div>
-  </div>
+      <Content>{children}</Content>
+    </LayoutInner>
+  </BaseStyles>
 );
 
 export default Layout;
