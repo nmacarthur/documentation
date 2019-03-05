@@ -1,8 +1,8 @@
 {
   "version": 2,
   "name": "documentation",
-  "build": [
+  "builds": [
     { "src": "package.json", "use": "@now/next" },
-    { "src": "server.js", "use": "@now/node-server" }
+    { "src": "server.js", "use": "@now/node" }
   ]
 }
