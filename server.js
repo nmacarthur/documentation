@@ -19,7 +19,6 @@ app
   .prepare()
   .then(() => {
     const server = express();
-
     server.get('/:slug', (req, res) => {
       validSlug(req.params.slug).then(response => {
         if (response) {
