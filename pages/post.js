@@ -40,55 +40,10 @@ const Content = ({ content, title, slug }) => {
   if (Array.isArray(content)) {
     content = content.toString();
   }
-  const parsed = parse(content, {
-    replace: domNode => {
-      if (domNode.name === 'p') {
-        if (domNode.children) {
-          return (
-            <Box>
-              {domNode.children.map(child => (
-                <Text key={nanoid()}>{child.data}</Text>
-              ))}
-            </Box>
-          );
-        }
-        return domNode;
-      }
-      if (domNode.name === 'h1') {
-        if (domNode.children) {
-          return (
-            <Box>
-              {domNode.children.map(child => (
-                <StyledTitle key={nanoid()} is="h1" size="h1">
-                  {child.data}
-                </StyledTitle>
-              ))}
-            </Box>
-          );
-        }
-        return domNode;
-      }
-      if (domNode.name === 'h2') {
-        if (domNode.children) {
-          return (
-            <Box>
-              {domNode.children.map(child => (
-                <StyledTitle key={nanoid()} is="h2" size="h2" m="0 0 15px">
-                  {child.data}
-                </StyledTitle>
-              ))}
-            </Box>
-          );
-        }
-        return domNode;
-      }
-
-      return domNode;
-    }
-  });
+  const parsed = parse(content);
   return (
     <div>
-      <Title is="h1" size="h1">
+      <Title is="h2" size="h2">
         {title}
       </Title>
       <Box>{parsed}</Box>

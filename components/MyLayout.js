@@ -5,14 +5,16 @@ import Sidebar from './Sidebar';
 
 const LayoutInner = styled.div`
   display: flex;
-  padding: 40px 0 40px 40px;
+  padding: 0px 0 0px 0px;
+  max-width: 1024px;
+  margin: auto;
 `;
 
 const Content = styled.main`
   flex: 1;
-  margin: 30px 0 0;
-  padding: 0 80px;
-  max-width: 100%;
+  margin: 40px 0 0;
+  padding: 0px 40px;
+  max-width: 700px;
   overflow: hidden;
 `;
 const BaseStyles = styled.div`
@@ -23,7 +25,6 @@ const BaseStyles = styled.div`
 
 const Layout = ({ sidebar, children }) => (
   <BaseStyles>
-    <Header />
     <LayoutInner>
       <Sidebar data={sidebar} />
       <Content>{children}</Content>

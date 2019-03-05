@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
+import Logo from './atoms/Logo';
 
 const nanoid = require('nanoid');
 
 const SidebarStyles = styled.aside`
   flex-shrink: 0;
   min-height: calc(100vh - 80px);
-  padding-right: 48px;
+  padding-right: 0px;
   box-sizing: content-box;
   border-right: 1px solid rgb(210, 210, 210);
   min-width: 200px;
@@ -16,9 +17,12 @@ const SidebarStyles = styled.aside`
 const SubMenu = styled.ul`
   list-style: none;
   padding: 0;
-  padding-left: 10px;
-  margin: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 40px 0 0;
   font-size: 20px;
+  position: sticky;
+  top: 40px;
 `;
 const SubMenuItem = styled.li`
   margin-bottom: 23px;
@@ -33,6 +37,10 @@ const SubMenuItem = styled.li`
   }
 `;
 
+const StyledLogo = styled(Logo)`
+  margin-left: 10px;
+`;
+
 const PostLink = ({ id, slug, title }) => (
   <SubMenuItem>
     <Link as={`/${slug}`} href={`/post?id=${id}&title=${title}&slug=${slug}`}>
@@ -43,6 +51,7 @@ const PostLink = ({ id, slug, title }) => (
 
 const Sidebar = ({ data }) => (
   <SidebarStyles>
+    <StyledLogo />
     <SubMenu>
       {data.map(article => (
         <PostLink
