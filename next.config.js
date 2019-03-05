@@ -30,7 +30,7 @@ const guides = async () => {
   return data;
 };
 
-exports.exportPathMap = () => guides();
+// exports.exportPathMap = guides();
 module.exports = withCSS(
   withSCSS({
     webpack(config, options) {
