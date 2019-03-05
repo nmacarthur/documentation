@@ -8,12 +8,7 @@ import Layout from '../components/MyLayout';
 import Title from '../components/atoms/Title';
 import Text from '../components/atoms/Text';
 import Box from '../components/atoms/Box';
-
-const StyledText = styled(Text)`
-  img {
-    width: 100%;
-  }
-`;
+import '../style.scss';
 
 const options = {
   renderNode: {
@@ -21,6 +16,10 @@ const options = {
       `<img class="img" src="${node.data.target.sys.id}" id="" alt='oi' />`
   }
 };
+
+const StyledTitle = styled(Title)`
+  font-family: 'avenir-next-bold';
+`;
 
 const swapUrlForID = async (string, slug) => {
   const newString = string;
@@ -38,6 +37,9 @@ const swapUrlForID = async (string, slug) => {
 };
 
 const Content = ({ content, title, slug }) => {
+  if (Array.isArray(content)) {
+    content = content.toString();
+  }
   const parsed = parse(content, {
     replace: domNode => {
       if (domNode.name === 'p') {
@@ -52,13 +54,44 @@ const Content = ({ content, title, slug }) => {
         }
         return domNode;
       }
+      if (domNode.name === 'h1') {
+        if (domNode.children) {
+          return (
+            <Box>
+              {domNode.children.map(child => (
+                <StyledTitle key={nanoid()} is="h1" size="h1">
+                  {child.data}
+                </StyledTitle>
+              ))}
+            </Box>
+          );
+        }
+        return domNode;
+      }
+      if (domNode.name === 'h2') {
+        if (domNode.children) {
+          return (
+            <Box>
+              {domNode.children.map(child => (
+                <StyledTitle key={nanoid()} is="h2" size="h2" m="0 0 15px">
+                  {child.data}
+                </StyledTitle>
+              ))}
+            </Box>
+          );
+        }
+        return domNode;
+      }
+
       return domNode;
     }
   });
   return (
     <div>
-      <Title>{title}</Title>
-      <StyledText>{parsed}</StyledText>
+      <Title is="h1" size="h1">
+        {title}
+      </Title>
+      <Box>{parsed}</Box>
     </div>
   );
 };

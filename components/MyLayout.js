@@ -16,7 +16,7 @@ const Content = styled.main`
   overflow: hidden;
 `;
 const BaseStyles = styled.div`
-  font-family: ${themeGet('fonts.bodyText')};
+  font-family: 'Roboto';
   color: ${themeGet('colors.black')};
   line-height: ${themeGet('lineHeights.l')};
 `;

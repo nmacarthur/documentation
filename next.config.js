@@ -1,4 +1,6 @@
 const fetch = require('isomorphic-fetch');
+const withCSS = require('@zeit/next-css');
+const withSCSS = require('@zeit/next-sass');
 
 const guides = async () => {
   const res = await fetch(
@@ -28,8 +30,21 @@ const guides = async () => {
   return data;
 };
 
-module.exports = {
-  exportPathMap() {
-    return guides();
-  }
-};
+exports.exportPathMap = () => guides();
+module.exports = withCSS(
+  withSCSS({
+    webpack(config, options) {
+      config.module.rules.push({
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 100000
+          }
+        }
+      });
+
+      return config;
+    }
+  })
+);

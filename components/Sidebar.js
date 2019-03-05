@@ -9,6 +9,8 @@ const SidebarStyles = styled.aside`
   min-height: calc(100vh - 80px);
   padding-right: 48px;
   box-sizing: content-box;
+  border-right: 1px solid rgb(210, 210, 210);
+  min-width: 200px;
 `;
 
 const SubMenu = styled.ul`
@@ -19,11 +21,15 @@ const SubMenu = styled.ul`
   font-size: 20px;
 `;
 const SubMenuItem = styled.li`
-  margin-bottom: 10px;
+  margin-bottom: 23px;
   a {
     padding-left: 0;
-
-    font-size: ${themeGet('fontSizes.s')}px;
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+  }
+  a.active {
+    font-weight: 700;
   }
 `;
 
