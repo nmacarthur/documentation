@@ -14,7 +14,7 @@ export default class MyCustomDocument extends Document {
     return (
       <html>
         <Head>
-          <title>NWO WRITE</title>
+          <title>NWO Written Communication Guide</title>
           {this.props.styleTags}
           <link
             href="https://fonts.googleapis.com/css?family=Roboto"
