@@ -27,9 +27,13 @@ app
           const queryParams = { slug: req.params.slug };
           app.render(req, res, actualPage, queryParams);
         } else {
-          res.redirect('/');
+          res.redirect('/introduction');
         }
       });
+    });
+
+    server.get('/', (req, res) => {
+      res.redirect('/introduction');
     });
 
     server.get('*', (req, res) => handle(req, res));
