@@ -1,5 +1,5 @@
 const colors = {
-  black: '#191919',
+  black: '#283C64',
   white: '#fff',
   grayscale: {
     400: '#d2d2d2'
@@ -21,8 +21,8 @@ const colors = {
 };
 
 const fonts = {
-  title: "'avenir-next-bold'",
-  bodyText: "'Roboto', serif"
+  title: 'adelle-sans',
+  bodyText: 'adelle-sans'
 };
 
 const fontSizes = {

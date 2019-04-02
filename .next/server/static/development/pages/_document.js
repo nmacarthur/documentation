@@ -153,9 +153,8 @@ function (_Document) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("html", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, "NWO Written Communication Guide"), this.props.styleTags, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-        href: "https://fonts.googleapis.com/css?family=Roboto",
         rel: "stylesheet",
-        key: "google-font-roboto"
+        href: "https://use.typekit.net/zou2ssf.css"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_2__["ThemeProvider"], {
         theme: _theme__WEBPACK_IMPORTED_MODULE_3__["default"]
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], null))));
@@ -208,7 +207,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports) {
 
 var colors = {
-  black: '#191919',
+  black: '#283C64',
   white: '#fff',
   grayscale: {
     400: '#d2d2d2'
@@ -229,8 +228,8 @@ var colors = {
   success: '#75de50'
 };
 var fonts = {
-  title: "'avenir-next-bold'",
-  bodyText: "'Roboto', serif"
+  title: 'adelle-sans',
+  bodyText: 'adelle-sans'
 };
 var fontSizes = {
   l: 23,

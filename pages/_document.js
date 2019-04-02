@@ -16,11 +16,7 @@ export default class MyCustomDocument extends Document {
         <Head>
           <title>NWO Written Communication Guide</title>
           {this.props.styleTags}
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto"
-            rel="stylesheet"
-            key="google-font-roboto"
-          />
+          <link rel="stylesheet" href="https://use.typekit.net/zou2ssf.css" />
         </Head>
         <ThemeProvider theme={theme}>
           <body>

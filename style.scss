@@ -1,39 +1,33 @@
-@font-face {
-  font-family: 'avenir-next-bold';
-  src: url('./fonts/avenir-next-bold.eot');
-  src: url('./fonts/avenir-next-bold.eot?#iefix') format('embedded-opentype'),
-    url('./fonts/avenir-next-bold.woff') format('woff'),
-    url('./fonts/avenir-next-bold.ttf') format('truetype'),
-    url('./fonts/avenir-next-bold.svg#avenir-next-bold') format('svg');
-  font-weight: bold;
-  font-style: normal;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-family: 'avenir-next-bold';
+  font-family: 'adelle-sans';
+  font-weight: 300;
 }
 
 h1 {
   font-size: 11.089rem;
   line-height: 0.81;
 }
+
 h2 {
   font-size: 6.854rem;
   line-height: 1.06;
 }
+
 h3 {
   font-size: 4.236rem;
   line-height: 1.14;
 }
+
 h4 {
   font-size: 2.618rem;
   line-height: 1.25;
   margin-bottom: 1rem;
 }
+
 h5 {
   font-size: 1.618rem;
   line-height: 1.32;
@@ -49,6 +43,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   position: relative;
+  color: #283C64;
 }
 
 .logo {

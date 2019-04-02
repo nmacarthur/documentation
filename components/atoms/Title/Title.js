@@ -7,6 +7,8 @@ import Box from '../Box';
 const StyledTitle = styled(Box)`
   line-height: ${({ size }) => themeGet(`lineHeights.heading.${size}`)};
   font-size: ${({ size }) => themeGet(`fontSizes.heading.${size}`)}px;
+  font-family: 'adelle-sans';
+  font-weight: 300;
 `;
 
 const Title = props => <StyledTitle {...props} />;

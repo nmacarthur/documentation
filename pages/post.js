@@ -18,7 +18,7 @@ const options = {
 };
 
 const StyledTitle = styled(Title)`
-  font-family: 'avenir-next-bold';
+  font-family: 'adelle-sans';
 `;
 
 const swapUrlForID = async (string, slug) => {
