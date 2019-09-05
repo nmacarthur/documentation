@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
 import { space, maxWidth, themeGet } from 'styled-system';
 import tag from 'clean-tag';
 
@@ -67,17 +67,9 @@ const styles = css`
           &:hover {
             border-color: ${themeGet('colors.black')};
             background: ${({ color, skin }) =>
-              themeGet(
-                color === 'black' && skin === 'fill'
-                  ? 'colors.white'
-                  : 'colors.black'
-              )};
+              themeGet(color === 'black' && skin === 'fill' ? 'colors.white' : 'colors.black')};
             color: ${({ color, skin }) =>
-              themeGet(
-                color === 'black' && skin === 'fill'
-                  ? 'colors.black'
-                  : 'colors.white'
-              )};
+              themeGet(color === 'black' && skin === 'fill' ? 'colors.black' : 'colors.white')};
           }
         `
       : null};
@@ -85,7 +77,7 @@ const styles = css`
   ${maxWidth};
 `;
 
-const StyledNavLink = styled(NavLink)`
+const StyledNavLink = styled(Link)`
   ${styles};
 `;
 const StyledLink = styled(tag.a)`
@@ -95,9 +87,9 @@ const StyledButton = styled(tag.button)`
   ${styles};
 `;
 
-const Button = ({ to, href, type, wide, ...rest }) => {
-  if (to) {
-    return <StyledNavLink to={to} wide={wide ? 1 : 0} {...rest} />;
+const Button = ({ as, href, type, wide, ...rest }) => {
+  if (as) {
+    return <StyledNavLink href={href} wide={wide ? 1 : 0} {...rest} />;
   }
   if (href) {
     return <StyledLink href={href} wide={wide ? 1 : 0} {...rest} />;
@@ -115,7 +107,7 @@ Button.propTypes = {
   wide: PropTypes.bool,
   disabled: PropTypes.bool,
   href: PropTypes.string,
-  to: PropTypes.string,
+  as: PropTypes.string,
   type: PropTypes.oneOf(['submit', 'button'])
 };
 

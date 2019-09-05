@@ -26,7 +26,7 @@ const BaseStyles = styled.div`
 const Layout = ({ sidebar, children }) => (
   <BaseStyles>
     <LayoutInner>
-      <Sidebar data={sidebar} />
+      <Sidebar />
       <Content>{children}</Content>
     </LayoutInner>
   </BaseStyles>

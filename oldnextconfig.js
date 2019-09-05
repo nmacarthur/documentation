@@ -1,6 +1,3 @@
-const { parsed: localEnv } = require('dotenv').config();
-const webpack = require('webpack');
-
 const { PHASE_PRODUCTION_SERVER } =
   process.env.NODE_ENV === 'development'
     ? {}
@@ -29,7 +26,6 @@ module.exports = (phase, { defaultConfig }) => {
             }
           }
         });
-        config.plugins.push(new webpack.EnvironmentPlugin(localEnv));
 
         return config;
       }

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
 import Logo from './atoms/Logo';
+import getPosts from '../util/getPosts';
 
 const nanoid = require('nanoid');
 
@@ -23,6 +24,7 @@ const SubMenu = styled.ul`
   font-size: 20px;
   position: sticky;
   top: 40px;
+  min-width: 250px;
 `;
 const SubMenuItem = styled.li`
   margin-bottom: 23px;
@@ -43,26 +45,30 @@ const StyledLogo = styled(Logo)`
 
 const PostLink = ({ id, slug, title }) => (
   <SubMenuItem>
-    <Link as={`/${slug}`} href={`/post?id=${id}&title=${title}&slug=${slug}`}>
+    <Link as={`/post/${slug}`} href={`/post/${slug}`}>
       <a>{title}</a>
     </Link>
   </SubMenuItem>
 );
 
-const Sidebar = ({ data }) => (
-  <SidebarStyles>
-    <StyledLogo />
-    <SubMenu>
-      {data.map(article => (
-        <PostLink
-          key={nanoid()}
-          id={article.sys.id}
-          slug={article.fields.slug}
-          title={article.fields.title}
-        />
-      ))}
-    </SubMenu>
-  </SidebarStyles>
-);
+const Sidebar = () => {
+  const data = getPosts();
+
+  return (
+    <SidebarStyles>
+      <StyledLogo />
+      <SubMenu>
+        {data.map(article => (
+          <PostLink
+            key={nanoid()}
+            id={article.sys.id}
+            slug={article.fields.slug}
+            title={article.fields.title}
+          />
+        ))}
+      </SubMenu>
+    </SidebarStyles>
+  );
+};
 
 export default Sidebar;
