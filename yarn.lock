@@ -4143,10 +4143,10 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-ismobilejs@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/ismobilejs/-/ismobilejs-1.0.2.tgz#ad31e7fe8ac49e2a9b841fbaa769ade63f7345b2"
-  integrity sha512-8bbp9XCpgQ3rgfTU1heQfEvoPrg5Qq3MwGEHn88m/tWIbW3DdE00tqSEGgyrF8QMdM82SvjK7JVD+wDvFWJ01Q==
+ismobilejs@^0.5.1:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/ismobilejs/-/ismobilejs-0.5.2.tgz#e81bacf6187c532ad8348355f4fecd6e6adfdce1"
+  integrity sha512-ta9UdV60xVZk/ZafFtSFslQaE76SvNkcs1r73d2PVR21zVzx9xuYv9tNe4MxA1NN7WoeCc2RjGot3Bz1eHDx3Q==
 
 isobject@^2.0.0:
   version "2.1.0"
@@ -5984,14 +5984,14 @@ rc-mentions@~0.4.0:
     react-lifecycles-compat "^3.0.4"
 
 rc-menu@^7.3.0, rc-menu@^7.4.22, rc-menu@~7.4.23:
-  version "7.4.27"
-  resolved "https://registry.yarnpkg.com/rc-menu/-/rc-menu-7.4.27.tgz#95ef0315fd305452368b52b20d301eae09eb618a"
-  integrity sha512-zp7mCM8BUYSjdU1trnSXbwfTPdQlJUFoNQe0wsbY14VrZ6NjycmI/mqV6oeD69FretUd+Svfy6GqpKdhcZmr/w==
+  version "7.4.28"
+  resolved "https://registry.yarnpkg.com/rc-menu/-/rc-menu-7.4.28.tgz#3c806463f464c355809bb380f0dbe01a954b89db"
+  integrity sha512-H61QBokniClkAVSLm2ZT5BMg7P2t1Vz7TwmUSuoF3Gbc1Q2M5ZFvnNnZBIQr8waHsLKfClsWyQVdA0BZe6iUfw==
   dependencies:
     babel-runtime "6.x"
     classnames "2.x"
     dom-scroll-into-view "1.x"
-    ismobilejs "^1.0.2"
+    ismobilejs "^0.5.1"
     mini-store "^2.0.0"
     mutationobserver-shim "^0.3.2"
     prop-types "^15.5.6"

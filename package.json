@@ -8,6 +8,7 @@
         "dev": "next dev",
         "start": "next start",
         "build": "next build",
+        "now-build": "next build",
         "start_old": "NODE_ENV=production node server.js",
         "export": "next export"
     },
@@ -42,7 +43,7 @@
         "tls": "0.0.1"
     },
     "devDependencies": {
-        "@babel/core": "^9.0.0",
+        "@babel/core": "^7.0.0",
         "babel-eslint": "^10.0.1",
         "babel-loader": "^8.0.5",
         "babel-plugin-styled-components": "^1.10.0",
